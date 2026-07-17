@@ -1,0 +1,32 @@
+{% extends "sekou/base.html" %} 
+
+
+{% block content%}
+<div class="w-full bg-base-200">
+   <div class="mb-4">
+      <a href="{% url 'ajouter_sekou' %}" class="btn btn-soft btn-primary w-full">Ajouter un sekou</a>
+   </div> 
+
+   <div class="space-y-4 w-full">
+       {% for sekou in sekou %}
+        <div class="p-4 bg-base-100 rounded-lg w-full flex justify-between items-center">
+           <div class="space-y-2">
+                <p class="font-old text-lg"> {{ sekou.nom }}</p>
+                <p class="badge badge-soft badge-primary"> {{ sekou.email }}</p>
+                <div class="flex gag-2">
+                     <p class="font-old text-lg"> {{ sekou.poste }}</p>
+                     <p class="badge badge-dash badge-primary"> {{ sekou.salaire }} $</p>
+                </div>
+                
+           </div> 
+           <div class="space-y-2">
+                <a href="{% url 'modifier_sekou' sekou.id %}" class="btn btn-primary  btn sm">Modifier</a>
+                <a href="{% url 'supprimer_sekou' sekou.id %}"class="btn btn-soft btn-primary btn-soft btn sm">Supprimer</a>
+           </div>
+        </div>
+       {% endfor %}
+
+   </div>
+</div>
+
+{% endblock %}

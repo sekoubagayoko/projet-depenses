@@ -1,0 +1,14 @@
+{% extends "sekou/base.html" %} 
+
+
+{% block content%}
+<form method="POST" class=" space-y-4 flex flex-col">
+     <span class="text-center"> Es-tu sur de vouloir supprimer <stong>{{sekou.nom}}</stong></span>
+
+
+    {% csrf_token%}
+    
+    <button type="submit" class="btn btn-error">Ou, supprimer</button>
+    <a href="{% url 'liste_sekou' %}" class="btn btn-soft btn-primary w-full">Annuler</a>
+</form>
+{% endblock %}
