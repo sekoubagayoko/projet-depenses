@@ -61,3 +61,25 @@ def supprimer_depense(request, pk):
         depense.delete()
         return redirect('liste_depenses')
     return render(request, 'depenses/supprimer.html', {'depense': depense})
+import csv
+from django.http import HttpResponse
+from .models import Depense
+
+def export_csv(request):
+    # Créer la réponse HTTP avec l'en-tête CSV
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="depenses.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['Titre', 'Catégorie', 'Montant (CFA)', 'Date'])
+
+    depenses = Depense.objects.all()
+    for depense in depenses:
+        writer.writerow([
+            depense.titre,
+            depense.categorie,
+            depense.montant,
+            depense.date.strftime('%Y-%m-%d'),
+        ])
+
+    return response

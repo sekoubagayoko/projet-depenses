@@ -15,4 +15,7 @@ urlpatterns = [
     path('ajouter/', views.ajouter_depense, name='ajouter_depense'),
     path('modifier/<int:pk>/', views.modifier_depense, name='modifier_depense'),
     path('supprimer/<int:pk>/', views.supprimer_depense, name='supprimer_depense'),
+    path('export-csv/', views.export_csv, name='export_csv'),  # <-- NOUVELLE LIGNE
 ]
+
+
