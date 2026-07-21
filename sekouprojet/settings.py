@@ -27,6 +27,7 @@ SECRET_KEY = 'django-insecure-&x%4!@#$^&*()_+~abcdefghijklmnopqrstuvwxyz123456'
 # DEBUG = True
 DEBUG = True
 ALLOWED_HOSTS = ['projet-depenses.onrender.com', '127.0.0.1', 'localhost']
+# test redéploiement 21 juillet
 #ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'sekouprojet.onrender.com']
 
 # Application definition
