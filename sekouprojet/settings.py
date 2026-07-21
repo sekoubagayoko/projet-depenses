@@ -28,7 +28,6 @@ SECRET_KEY = 'django-insecure-&x%4!@#$^&*()_+~abcdefghijklmnopqrstuvwxyz123456'
 DEBUG = True
 ALLOWED_HOSTS = ['projet-depenses.onrender.com', '127.0.0.1', 'localhost']
 #ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'sekouprojet.onrender.com']
-ALLOWED_HOSTS = ['votre-nom-utilisateur.pythonanywhere.com', '127.0.0.1', 'localhost']
 
 # Application definition
 
