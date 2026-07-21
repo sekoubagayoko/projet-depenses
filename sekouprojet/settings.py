@@ -15,19 +15,20 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'django-insecure-hdhtib-fw35^_0+7ss2*^@ealu0h$22#$f9)k98e^r)zoy_^6a'
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = 'django-insecure-&x%4!@#$^&*()_+~abcdefghijklmnopqrstuvwxyz123456'
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG = False
-ALLOWED_HOSTS = ['192.168.1.106','localhost','127.0.0.1']
-ALLOWED_HOSTS = ['sekouprojet.onrender.com']
+DEBUG = True
+ALLOWED_HOSTS = ['*']  # ou mieux : ['votre_nom_utilisateur.pythonanywhere.com']
+#ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'sekouprojet.onrender.com']
+ALLOWED_HOSTS = ['votre-nom-utilisateur.pythonanywhere.com', '127.0.0.1', 'localhost']
 
 # Application definition
 
@@ -77,20 +78,23 @@ WSGI_APPLICATION = 'sekouprojet.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL'),
-        conn_max_age=600,
-        ssl_require=True
-    )
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'votre_nom_utilisateur$ma_base',  # On créera ça dans l'étape 3
+#         'USER': 'votre_nom_utilisateur',
+#         'PASSWORD': 'VOTRE_MOT_DE_PASSE',
+#         'HOST': 'votre_nom_utilisateur.mysql.pythonanywhere-services.com',
+#         'PORT': '3306',
 #     }
-# }
+#}
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 # Password validation
@@ -131,3 +135,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = '/home/sekoubagayoko/mysite/static'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
