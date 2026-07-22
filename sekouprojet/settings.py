@@ -25,7 +25,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 SECRET_KEY = 'django-insecure-&x%4!@#$^&*()_+~abcdefghijklmnopqrstuvwxyz123456'
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG = False
+# 
+DEBUG = True  # ← Temporairement pour voir l'erreur
 ALLOWED_HOSTS = ['projet-depenses.onrender.com', '127.0.0.1', 'localhost']
 # test redéploiement 21 juillet
 #ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'sekouprojet.onrender.com']
