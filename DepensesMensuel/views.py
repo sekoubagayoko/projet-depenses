@@ -26,3 +26,18 @@ def liste_depenses(request):
         'data': json.dumps(data),
     }
     return render(request, 'depenses/liste.html', context)
+
+
+from django.shortcuts import render, redirect
+from .models import Depense
+from .forms import DepenseForm  # Assurez-vous d'avoir un formulaire
+
+def ajouter_depense(request):
+    if request.method == 'POST':
+        form = DepenseForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('liste_depenses')
+    else:
+        form = DepenseForm()
+    return render(request, 'depenses/ajouter.html', {'form': form})
