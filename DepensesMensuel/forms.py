@@ -4,7 +4,7 @@ from .models import Depense
 class DepenseForm(forms.ModelForm):
     class Meta:
         model = Depense
-        fields = ['titre', 'categorie', 'montant', 'date']
+        fields = ['titre', 'categorie', 'montant']  # ← 'date' retiré
         widgets = {
             'titre': forms.TextInput(attrs={
                 'class': 'form-control',
@@ -18,14 +18,4 @@ class DepenseForm(forms.ModelForm):
                 'placeholder': 'Montant en CFA',
                 'step': '0.01'
             }),
-            'date': forms.DateInput(attrs={
-                'class': 'form-control',
-                'type': 'date'
-            }),
-        }
-        labels = {
-            'titre': 'Titre',
-            'categorie': 'Catégorie',
-            'montant': 'Montant (CFA)',
-            'date': 'Date',
         }
