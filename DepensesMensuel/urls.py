@@ -17,11 +17,18 @@
 #     path('supprimer/<int:pk>/', views.supprimer_depense, name='supprimer_depense'),
 #     path('export-csv/', views.export_csv, name='export_csv'),  # <-- NOUVELLE LIGNE
 # ]
+# from django.urls import path
+# from . import views
+
+# urlpatterns = [
+#     path('', views.liste_depenses, name='liste_depenses'),
+#     # Les autres fonctionnalités (ajouter, modifier, supprimer, export) seront ajoutées plus tard
+# ]
 from django.urls import path
 from . import views
 
 urlpatterns = [
     path('', views.liste_depenses, name='liste_depenses'),
-    # Les autres fonctionnalités (ajouter, modifier, supprimer, export) seront ajoutées plus tard
+    path('ajouter/', views.ajouter_depense, name='ajouter_depense'),
 ]
 

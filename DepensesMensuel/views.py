@@ -41,3 +41,17 @@ def ajouter_depense(request):
     else:
         form = DepenseForm()
     return render(request, 'depenses/ajouter.html', {'form': form})
+def ajouter_depense(request):
+    if request.method == 'POST':
+        titre = request.POST.get('titre')
+        categorie = request.POST.get('categorie')
+        montant = request.POST.get('montant')
+        date = request.POST.get('date')
+        Depense.objects.create(
+            titre=titre,
+            categorie=categorie,
+            montant=montant,
+            date=date
+        )
+        return redirect('liste_depenses')
+    return render(request, 'depenses/ajouter.html')
