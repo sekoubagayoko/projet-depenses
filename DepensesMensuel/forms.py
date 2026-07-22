@@ -4,13 +4,28 @@ from .models import Depense
 class DepenseForm(forms.ModelForm):
     class Meta:
         model = Depense
-        fields = ['titre', 'montant', 'categorie', 'description']
+        fields = ['titre', 'categorie', 'montant', 'date']
         widgets = {
-            'date': forms.DateInput(attrs={'type': 'date'}),
+            'titre': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Titre de la dépense'
+            }),
+            'categorie': forms.Select(attrs={
+                'class': 'form-select'
+            }),
+            'montant': forms.NumberInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Montant en CFA',
+                'step': '0.01'
+            }),
+            'date': forms.DateInput(attrs={
+                'class': 'form-control',
+                'type': 'date'
+            }),
         }
         labels = {
-            'titre': 'Titre de la dépense',
-            'montant': 'Montant (CFA)',
+            'titre': 'Titre',
             'categorie': 'Catégorie',
-            'description': 'Description (optionnelle)',
+            'montant': 'Montant (CFA)',
+            'date': 'Date',
         }

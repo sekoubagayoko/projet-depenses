@@ -1,27 +1,26 @@
 
-from django import forms
+# from django import forms
 from .models import Sekou
+
 class SekouForm(forms.ModelForm):
-    class Meta :
+    class Meta:
         model = Sekou
-        fields = ['nom','email', 'poste', 'salaire']
-        widgets={
-            'nom':forms.TextInput(attrs={
-                'class' : 'inpu w-full',
+        fields = ['nom', 'email', 'poste', 'salaire']
+        widgets = {
+            'nom': forms.TextInput(attrs={
+                'class': 'input w-full',  # ← corrigé : "input" au lieu de "inpu"
                 'placeholder': 'Nom'
             }),
-            'email':forms.TextInput(attrs={
-                'class' : 'inpu w-full',
+            'email': forms.TextInput(attrs={
+                'class': 'input w-full',
                 'placeholder': 'Email'
             }),
-            'poste':forms.TextInput(attrs={
-                'class' : 'inpu w-full',
+            'poste': forms.TextInput(attrs={
+                'class': 'input w-full',
                 'placeholder': 'Poste'
             }),
-            'salaire':forms.TextInput(attrs={
-                'class' : 'inpu w-full',
-                'placeholder': 'Salaire' 
-
-            }),            
-
+            'salaire': forms.TextInput(attrs={
+                'class': 'input w-full',
+                'placeholder': 'Salaire'
+            }),
         }
